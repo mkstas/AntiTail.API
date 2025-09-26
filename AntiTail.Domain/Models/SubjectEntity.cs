@@ -2,7 +2,7 @@
 
 namespace AntiTail.Domain.Models
 {
-    public class Subject(BigInteger userId, string title)
+    public class SubjectEntity(BigInteger userId, string title)
     {
         public BigInteger Id { get; set; }
 
@@ -10,8 +10,8 @@ namespace AntiTail.Domain.Models
 
         public string Title { get; set; } = title;
 
-        public User? User { get; set; }
+        public UserEntity? User { get; set; }
 
-        public List<Task> Tasks { get; set; } = [];
+        public List<TaskEntity> Tasks { get; set; } = [];
     }
 }

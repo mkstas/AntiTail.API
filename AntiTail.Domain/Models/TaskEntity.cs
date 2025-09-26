@@ -10,7 +10,7 @@ namespace AntiTail.Domain.Models
         Great = 5,
     }
 
-    public class Task(BigInteger subjectId, string title, string? description = null)
+    public class TaskEntity(BigInteger subjectId, string title, string? description = null)
     {
         public BigInteger Id { get; set; }
 
@@ -22,8 +22,8 @@ namespace AntiTail.Domain.Models
 
         public int? Grade { get; set; } = null;
 
-        public Subject? Subject { get; set; }
+        public SubjectEntity? Subject { get; set; }
 
-        public List<Task> Tasks { get; set; } = [];
+        public List<SubtaskEntity> Subtasks { get; set; } = [];
     }
 }

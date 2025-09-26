@@ -8,7 +8,7 @@ namespace AntiTail.Domain.Models
         Succeeded,
     }
 
-    public class Subtask(BigInteger taskId, string title, string? description = null)
+    public class SubtaskEntity(BigInteger taskId, string title, string? description = null)
     {
         public BigInteger Id { get; set; }
 
@@ -20,6 +20,6 @@ namespace AntiTail.Domain.Models
 
         public Status Status { get; set; } = Status.Pending;
 
-        public Task? Task { get; set; }
+        public TaskEntity? Task { get; set; }
     }
 }

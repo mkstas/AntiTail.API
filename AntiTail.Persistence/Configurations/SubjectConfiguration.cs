@@ -9,6 +9,7 @@ namespace AntiTail.Persistence.Configurations
         public void Configure(EntityTypeBuilder<SubjectEntity> builder)
         {
             builder
+                .ToTable("subjects")
                 .HasKey(s => s.Id);
 
             builder
@@ -20,6 +21,21 @@ namespace AntiTail.Persistence.Configurations
                 .HasMany(s => s.Tasks)
                 .WithOne(t => t.Subject)
                 .HasForeignKey(t => t.SubjectId);
+
+            builder
+                .Property(u => u.Id)
+                .HasColumnName("id");
+
+            builder
+                .Property(s => s.UserId)
+                .IsRequired()
+                .HasColumnName("user_id");
+
+            builder
+                .Property(s => s.Title)
+                .IsRequired()
+                .HasMaxLength(64)
+                .HasColumnName("title");
         }
     }
 }

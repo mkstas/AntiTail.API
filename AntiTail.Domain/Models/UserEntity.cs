@@ -1,12 +1,10 @@
-﻿using System.Numerics;
-
-namespace AntiTail.Domain.Models
+﻿namespace AntiTail.Domain.Models
 {
-    public class UserEntity(string userName)
+    public class UserEntity(string login)
     {
-        public BigInteger Id { get; set; }
+        public long Id { get; set; }
 
-        public string UserName { get; set; } = userName;
+        public string Login { get; set; } = login;
 
         public List<SubjectEntity> Subjects { get; set; } = [];
     }

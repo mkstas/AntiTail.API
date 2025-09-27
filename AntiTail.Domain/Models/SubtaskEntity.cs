@@ -1,18 +1,10 @@
-﻿using System.Numerics;
-
-namespace AntiTail.Domain.Models
+﻿namespace AntiTail.Domain.Models
 {
-    public enum Status
+    public class SubtaskEntity(long taskId, string title, string? description = null)
     {
-        Pending,
-        Succeeded,
-    }
+        public long Id { get; set; }
 
-    public class SubtaskEntity(BigInteger taskId, string title, string? description = null)
-    {
-        public BigInteger Id { get; set; }
-
-        public BigInteger TaskId { get; set; } = taskId;
+        public long TaskId { get; set; } = taskId;
 
         public string Title { get; set; } = title;
 

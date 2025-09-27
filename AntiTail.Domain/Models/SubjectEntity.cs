@@ -1,12 +1,10 @@
-﻿using System.Numerics;
-
-namespace AntiTail.Domain.Models
+﻿namespace AntiTail.Domain.Models
 {
-    public class SubjectEntity(BigInteger userId, string title)
+    public class SubjectEntity(long userId, string title)
     {
-        public BigInteger Id { get; set; }
+        public long Id { get; set; }
 
-        public BigInteger UserId { get; set; } = userId;
+        public long UserId { get; set; } = userId;
 
         public string Title { get; set; } = title;
 

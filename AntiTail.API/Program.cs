@@ -1,17 +1,22 @@
+using AntiTail.Application.Services;
+using AntiTail.Domain.Interfaces;
 using AntiTail.Persistence;
+using AntiTail.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var configuration = builder.Configuration;
-
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddDbContext<AntiTailDbContext>(
     options =>
     {
-        options.UseNpgsql(configuration.GetConnectionString(nameof(AntiTailDbContext)));
+        options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(AntiTailDbContext)));
     });
+
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 
